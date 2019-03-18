@@ -1,0 +1,54 @@
+@import 'index';
+
+$test-border: 3px solid;
+
+div.App {
+  height: 100vh;
+  min-width: 100vw;
+}
+
+div#container {
+  display: grid;
+  height: 100vh;
+  grid-template: 
+    "head" 10vh
+    "main" auto
+    "side" 10vh / 100vw;
+}
+
+div#top-panel {
+  box-sizing: border-box;
+  grid-area: head;
+  // grid-area: 1 / 1 / 1 / end; // NOTE: only for desktop!!
+  border: red $test-border;
+}
+
+div#side-panel {
+  grid-area: side;
+  box-sizing: border-box;
+  // grid-area: 2 / 1; // NOTE: only for desktop!!
+  border: green $test-border;
+}
+
+div#main-content {
+  grid-area: main;
+  box-sizing: border-box;
+  border: yellowgreen $test-border;
+}
+
+@media (min-width: $breakpoint-tablet-landscape) {
+  div#container{
+    grid-template:
+      "side head" 10vh
+      "side main" 1fr / 1fr 95vw;
+  }
+}
+
+@media (orientation: portrait) {
+  div#container{
+    grid-template:
+      "head" 10vh
+      "main" auto
+      "side" 10vh / auto;
+  }
+}
