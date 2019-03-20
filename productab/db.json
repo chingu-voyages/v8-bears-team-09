@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "bob123"
+    },
+    {
+      "id": 2,
+      "username": "Jackie45"
+    },
+    {
+      "id": 3,
+      "username": "urGirl96"
+    },
+    {
+      "username": "KevinS",
+      "id": 4
+    }
+  ],
+  "lists": [
+    {
+      "id": 1,
+      "title": "Planning",
+      "info": "List used for the planning stage of cards. Cards here are not concretely defined at this point."
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "list_id": 1,
+      "title": "Make a mock DB",
+      "author_id": 1,
+      "users_by_id": []
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "tag_name": "urgent",
+      "desc": "Urgent tags are considered time-sensitive."
+    }
+  ],
+  "tagged_cards": [
+    {
+      "id": 1,
+      "tag_id": 1,
+      "card_id": 1
+    }
+  ],
+  "tagged_lists": []
+}

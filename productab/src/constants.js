@@ -1,10 +1,13 @@
+export const JSON_SERVER = "http://localhost:3001/";
+
 export const ADD_LIST = "ADD_LIST";
 export const REMOVE_LIST = "REMOVE_LIST";
 
 export const ADD_CARD = "ADD_CARD";
 export const REMOVE_CARD = "REMOVE_CARD";
 
-// SECTION: these actions may lead to some windfall if implemented incorrectly in their action-creator, update DOM then on reload sync to DB
+/* SECTION: these actions may lead to some windfall if implemented incorrectly in their action-creator, 
+ update DOM then on reload sync to DB */
 export const MOVE_CARD = "MOVE_CARD";
 export const UPDATE_CARD = "UPDATE_CARD"
 
@@ -29,3 +32,6 @@ export const SELECT_WORKSPACE = "SELECT_WORKSPACE";
 export const CHANGE_WORKSPACE = "CHANGE_WORKSPACE";
 
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
+
+export const DISABLE_FORMS = "DISABLE_FORMS"
+export const ENABLE_FORMS = "ENABLE_FORMS"

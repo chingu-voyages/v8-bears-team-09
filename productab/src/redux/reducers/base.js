@@ -7,14 +7,18 @@ const initialState = {
   boards: [],
   cards: [],
   workspaces: [],
-  modalOn: false
+  modalOn: false,
+  formsDisabled: false
 }
 
 export const base = (state = initialState, {type, payload}) => {
-  let selectedCard, selectedList, selectedWorkspace, boards, cards, workspaces, modalOn;
+  let selectedCard, selectedList, selectedWorkspace, boards, cards, workspaces, modalOn, formsDisabled;
   switch(type) {
     // the action creator will access the DB, create a new board and overwrite the collection of boards and return a payload of the updated collection of boards
     case _.ADD_LIST:
+      boards = [...state.boards, payload]
+      return{...state, boards};
+
     case _.GET_LISTS:
     case _.CHANGE_LISTS:
     case _.REMOVE_LIST:
@@ -22,6 +26,9 @@ export const base = (state = initialState, {type, payload}) => {
       return {...state, boards};
 
     case _.ADD_CARD:
+      cards = [...state.cards, payload]
+      return {...state, cards};
+
     case _.GET_CARDS:
     case _.CHANGE_CARDS:
     case _.REMOVE_CARD:
@@ -48,7 +55,13 @@ export const base = (state = initialState, {type, payload}) => {
       return {...state, selectedWorkspace};
 
     case _.TOGGLE_MODAL:
-      return {...state, modalOn: payload};
+      modalOn = payload
+      return {...state, modalOn};
+
+    case _.DISABLE_FORMS:
+    case _.ENABLE_FORMS:
+      formsDisabled = payload;
+      return {...state, formsDisabled};
       
     default:
       return state;

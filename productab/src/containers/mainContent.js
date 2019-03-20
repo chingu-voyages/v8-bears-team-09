@@ -1,14 +1,35 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const MainContent = (props) => {
-  return(<div id="main-content">
-    {props.children}
-  </div>);
-}
-const _MainContent = (props) => {
-  return(<MainContent>
-    Main Content
-  </MainContent>);
+import List from "./list";
+import NewList from "../components/newList";
+import * as _ from "../redux/actions/baseActions";
+import "../_stylesheet/components.scss";
+
+class MainContent extends React.Component {
+  state = {
+
+  }
+
+  handleBlurClick = (evt) => {
+    const { disableForms } = this.props;
+    if (evt.target.id === "main-content")
+    {
+      disableForms();
+    }
+    evt.persist();
+  }
+
+  render() {
+    return(<div id="main-content" onClick={this.handleBlurClick}>
+      <List/>
+      <NewList/>
+    </div>);
+  }
 }
 
-export default _MainContent;
+const mapDispatchToProps = (dispatch) => ({
+  disableForms: () => dispatch(_.disableForms())
+});
+
+export default connect(null, mapDispatchToProps)(MainContent);

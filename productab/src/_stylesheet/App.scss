@@ -1,7 +1,5 @@
 @import 'index';
 
-$test-border: 3px solid;
-
 div.App {
   height: 100vh;
   min-width: 100vw;
@@ -19,21 +17,24 @@ div#container {
 div#top-panel {
   box-sizing: border-box;
   grid-area: head;
-  // grid-area: 1 / 1 / 1 / end; // NOTE: only for desktop!!
   border: red $test-border;
 }
 
 div#side-panel {
   grid-area: side;
   box-sizing: border-box;
-  // grid-area: 2 / 1; // NOTE: only for desktop!!
   border: green $test-border;
 }
 
 div#main-content {
   grid-area: main;
+  padding: $main-padding;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  background-color: $default-bg;
   box-sizing: border-box;
-  border: yellowgreen $test-border;
 }
 
 @media (min-width: $breakpoint-tablet-landscape) {

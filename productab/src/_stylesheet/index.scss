@@ -1,3 +1,19 @@
+/* Breakpoints & Measurements*/
+$breakpoint-tablet-landscape: 900px; 
+$border-radius: 4px;
+$list-spacer: 3vw;
+$main-padding: 10px;
+$list-cap-height: 30px;
+$list-width: 270px;
+
+/* Other Variables */
+$test-border: 3px solid;
+$default-grey: #dbe0e0;
+$dark-grey: #353535;
+$default-bg: #429c6b;
+$dark-green: #217547;
+$lt-blue: #2d55aa;
+
 div, body, :root {
   margin: 0;
   padding: 0;
@@ -16,5 +32,30 @@ code {
     monospace;
 }
 
-/* Breakpoints */
-$breakpoint-tablet-landscape: 900px; 
+textarea {
+  resize: none;
+  border: none;
+  border-style: none;
+  font-size: 1em;
+  max-width: inherit - 2*$main-padding;
+}
+
+textarea:focus {
+  border-style: none;
+}
+
+button {
+  font-size: 1em;
+  font-weight: 600;
+  padding: $main-padding;
+  border-radius: $border-radius;
+  border-style: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+i:hover {
+  cursor: pointer;
+}
