@@ -1,0 +1,55 @@
+@import 'index';
+
+div.App {
+  height: 100vh;
+  min-width: 100vw;
+}
+
+div#container {
+  display: grid;
+  height: 100vh;
+  grid-template: 
+    "head" 10vh
+    "main" auto
+    "side" 10vh / 100vw;
+}
+
+div#top-panel {
+  box-sizing: border-box;
+  grid-area: head;
+  border: red $test-border;
+}
+
+div#side-panel {
+  grid-area: side;
+  box-sizing: border-box;
+  border: green $test-border;
+}
+
+div#main-content {
+  grid-area: main;
+  padding: $main-padding;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  background-color: $default-bg;
+  box-sizing: border-box;
+}
+
+@media (min-width: $breakpoint-tablet-landscape) {
+  div#container{
+    grid-template:
+      "side head" 10vh
+      "side main" 1fr / 1fr 95vw;
+  }
+}
+
+@media (orientation: portrait) {
+  div#container{
+    grid-template:
+      "head" 10vh
+      "main" auto
+      "side" 10vh / auto;
+  }
+}

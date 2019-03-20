@@ -1,0 +1,18 @@
+Terminal command to run faux server:
+  json-server -p 3001 --watch db.json
+
+NOTE: Routes for the mock server and DB 
+  http://localhost:3001/users
+  http://localhost:3001/lists
+  http://localhost:3001/cards
+  http://localhost:3001/tags
+  http://localhost:3001/tagged_cards
+  http://localhost:3001/tagged_lists
+
+Their placeholder objects look like this:
+user -> { username: "name"}
+list -> { title: "title", info: "a bunch of info about the list"}
+card -> { list_id: 0, title: "title", author_id: 1, users_by_id: [] }
+tags -> { tag_name: "tag name", desc: "description of tag" }
+tagged_cards -> { tag_id: 1, card_id: 3}
+tagged_lists -> { tag_id: 1, list_id: 2}
