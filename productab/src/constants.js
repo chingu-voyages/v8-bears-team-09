@@ -23,13 +23,13 @@ export const DESELECT_LIST = "DESELECT_LIST";
 
 export const GET_LISTS = "GET_LISTS";
 export const GET_CARDS = "GET_CARDS";
-export const GET_ALL_WORKSPACE = "GET_ALL_WORKSPACE";
+export const GET_ALL_BOARDS = "GET_ALL_BOARDS";
 
-export const CHANGE_LISTS = "CHANGE_LISTS";
-export const CHANGE_CARDS = "CHANGE_CARDS";
+// export const CHANGE_LISTS = "CHANGE_LISTS";
+// export const CHANGE_CARDS = "CHANGE_CARDS";
 
-export const SELECT_WORKSPACE = "SELECT_WORKSPACE";
-export const CHANGE_WORKSPACE = "CHANGE_WORKSPACE";
+export const SELECT_BOARD = "SELECT_BOARD";
+export const CHANGE_BOARD = "CHANGE_BOARD";
 
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
 

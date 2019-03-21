@@ -4,9 +4,12 @@
   display: table;
 }
 
-
 .transparent-black {
   background-color: rgba($dark-grey, 0.5);
+}
+
+div#main-content {
+  overflow-x: scroll;
 }
 
 div.list-sizing {

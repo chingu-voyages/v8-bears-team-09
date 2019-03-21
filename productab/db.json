@@ -1,4 +1,24 @@
 {
+  "boards": [
+    {
+      "id": 1,
+      "title": "default"
+    }
+  ],
+  "board_members": [
+    {
+      "board_id": 1,
+      "member_id": 1
+    },
+    {
+      "board_id": 1,
+      "member_id": 2
+    },
+    {
+      "board_id": 1,
+      "member_id": 3
+    }
+  ],
   "users": [
     {
       "id": 1,
@@ -20,17 +40,78 @@
   "lists": [
     {
       "id": 1,
+      "board_id": 1,
       "title": "Planning",
-      "info": "List used for the planning stage of cards. Cards here are not concretely defined at this point."
+      "position": 1,
+      "info": "List used for the planning stage of cards. Cards here are not well-defined at this point."
+    },
+    {
+      "title": "sdfsfdsfs",
+      "info": "",
+      "id": 2
+    },
+    {
+      "title": "Another one",
+      "info": "",
+      "id": 3
+    },
+    {
+      "title": "One more time",
+      "info": "",
+      "id": 4
+    },
+    {
+      "title": "Work In Progress",
+      "info": "",
+      "board_id": 1,
+      "id": 5
+    },
+    {
+      "title": "Under Reviews",
+      "info": "",
+      "board_id": 1,
+      "id": 6
+    },
+    {
+      "title": "IDK",
+      "info": "",
+      "board_id": 1,
+      "id": 7
     }
   ],
   "cards": [
     {
       "id": 1,
       "list_id": 1,
-      "title": "Make a mock DB",
+      "order": 1,
+      "description": "Make a mock DB",
       "author_id": 1,
       "users_by_id": []
+    },
+    {
+      "list_id": 1,
+      "description": "Another Card I guess.",
+      "id": 2
+    },
+    {
+      "list_id": 5,
+      "description": "Go up",
+      "id": 3
+    },
+    {
+      "list_id": 5,
+      "description": "Wlksjldkjfsd",
+      "id": 4
+    },
+    {
+      "list_id": 5,
+      "description": "sdfsdfs",
+      "id": 5
+    },
+    {
+      "list_id": 6,
+      "description": "testing",
+      "id": 6
     }
   ],
   "tags": [
