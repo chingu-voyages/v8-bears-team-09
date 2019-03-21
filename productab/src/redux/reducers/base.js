@@ -3,36 +3,35 @@ import * as _ from "../../constants";
 const initialState = {
   selectedCard: null,
   selectedList: null,
-  selectedWorkspace: null,
-  boards: [],
+  currentBoard: null, // REFACTOR: use LocalStorage or something to keep or grab this first, the rest of the things should follow
+  lists: [],
   cards: [],
-  workspaces: [],
+  boards: [],
   modalOn: false,
   formsDisabled: false
 }
 
 export const base = (state = initialState, {type, payload}) => {
-  let selectedCard, selectedList, selectedWorkspace, boards, cards, workspaces, modalOn, formsDisabled;
+  let selectedCard, selectedList, currentBoard, lists, cards, boards, modalOn, formsDisabled;
   switch(type) {
-    // the action creator will access the DB, create a new board and overwrite the collection of boards and return a payload of the updated collection of boards
+    // the action creator will access the DB, create a new board and overwrite the collection of lists and return a payload of the updated collection of lists
     case _.ADD_LIST:
-      boards = [...state.boards, payload]
-      return{...state, boards};
+      lists = [...state.lists, payload]
+      return{...state, lists};
 
     case _.GET_LISTS:
-    case _.CHANGE_LISTS:
-    case _.REMOVE_LIST:
-      boards = [...payload];
-      return {...state, boards};
+    case _.UPDATE_LIST:
+    case _.REMOVE_LIST: // NOTE: this needs to filter in the action creator not here!!
+      lists = payload;
+      return {...state, lists};
 
     case _.ADD_CARD:
       cards = [...state.cards, payload]
       return {...state, cards};
 
     case _.GET_CARDS:
-    case _.CHANGE_CARDS:
     case _.REMOVE_CARD:
-      cards = [...payload];
+      cards = payload;
       return {...state, cards};
 
     case _.SELECT_LIST:
@@ -45,14 +44,14 @@ export const base = (state = initialState, {type, payload}) => {
       selectedCard = payload;
       return {...state, selectedCard};
 
-    case _.GET_ALL_WORKSPACE:
-      workspaces = [...payload];
-      return {...state, workspaces};
+    case _.GET_ALL_BOARDS:
+      boards = payload;
+      return {...state, boards};
     
-    case _.SELECT_WORKSPACE:
-    case _.CHANGE_WORKSPACE:
-      selectedWorkspace = payload;
-      return {...state, selectedWorkspace};
+    case _.SELECT_BOARD:
+    case _.CHANGE_BOARD:
+      currentBoard = payload;
+      return {...state, currentBoard};
 
     case _.TOGGLE_MODAL:
       modalOn = payload
