@@ -3,31 +3,40 @@ import axios from "axios";
 import { JSON_SERVER } from "../constants";
 import { connect } from "react-redux";
 
-import * as _ from "../redux/actions/baseActions";
+import * as _card from "../redux/actions/cardActions";
 
 class NewCard extends React.Component {
   state = {
-    description: ""
+    title: ""
   }
 
+
   handleChangeText = (evt) => {
-    this.setState({ description: evt.target.value });
+    this.setState({ title: evt.target.value });
     evt.persist();
   }
 
   addCard = async(evt) => {
-    const { listId, addCard } = this.props;
-    const { description } = this.state;
+    const { listId, addCard, cardCount } = this.props;
+    const { title } = this.state;
+    const position = cardCount + 1;
 
     const cardObj = {
       list_id: listId,
-      description
+      title,
+      description: "",
+      position
+    }
+    // updates the number of cardCount
+    const changeListPromise = await axios.patch(JSON_SERVER + `lists/${listId}`, {cardCount: position});
+    const changeList = await changeListPromise.data;
+    
+    if (changeList) {
+      const newCard = await axios.post(JSON_SERVER + "cards", {...cardObj});
+      const data = await newCard.data;
+      addCard(data);
     }
 
-    const newCard = await axios.post(JSON_SERVER + "cards", {...cardObj});
-    const data = await newCard.data;
-    addCard(data);
-    // pass data to the dispatch that adds new card to array of cards for list
     evt.persist();
     evt.preventDefault();
   }
@@ -41,7 +50,7 @@ class NewCard extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addCard: (val) => dispatch(_.addCard(val))
+  addCard: (val) => dispatch(_card.addCard(val))
 });
 
 export default connect(null, mapDispatchToProps)(NewCard);

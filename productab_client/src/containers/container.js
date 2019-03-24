@@ -8,16 +8,10 @@ import "../_stylesheet/App.scss";
 
 const Container = (props) => {
   return (<div id="container">
-    {props.children}
-  </div>);
-}
-
-const _Container = (props) => {
-  return (<Container>
     <TopPanel/>
     <SidePanel/>
     <MainContent/>
-  </Container>);
+  </div>);
 }
 
-export default _Container;
+export default Container;

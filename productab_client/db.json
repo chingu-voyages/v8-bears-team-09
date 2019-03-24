@@ -2,7 +2,9 @@
   "boards": [
     {
       "id": 1,
-      "title": "default"
+      "title": "default",
+      "info": "A board created by default",
+      "listCount": 4
     }
   ],
   "board_members": [
@@ -43,81 +45,55 @@
       "board_id": 1,
       "title": "Planning",
       "position": 1,
+      "cardCount": 1,
       "info": "List used for the planning stage of cards. Cards here are not well-defined at this point."
     },
     {
-      "title": "sdfsfdsfs",
-      "info": "",
-      "id": 2
-    },
-    {
-      "title": "Another one",
-      "info": "",
-      "id": 3
-    },
-    {
-      "title": "One more time",
-      "info": "",
-      "id": 4
-    },
-    {
-      "title": "Work In Progress",
+      "title": "Work In Progress?",
       "info": "",
       "board_id": 1,
+      "position": 2,
+      "cardCount": 0,
       "id": 5
     },
     {
       "title": "Under Reviews",
       "info": "",
       "board_id": 1,
+      "position": 3,
+      "cardCount": 0,
       "id": 6
     },
     {
       "title": "IDK",
       "info": "",
       "board_id": 1,
+      "position": 4,
+      "cardCount": 0,
       "id": 7
+    },
+    {
+      "title": "Done",
+      "info": "",
+      "board_id": 1,
+      "cardCount": 0,
+      "id": 8
     }
   ],
   "cards": [
     {
-      "id": 1,
       "list_id": 1,
-      "order": 1,
-      "description": "Make a mock DB",
-      "author_id": 1,
-      "users_by_id": []
-    },
-    {
-      "list_id": 1,
-      "description": "Another Card I guess.",
-      "id": 2
-    },
-    {
-      "list_id": 5,
-      "description": "Go up",
-      "id": 3
-    },
-    {
-      "list_id": 5,
-      "description": "Wlksjldkjfsd",
-      "id": 4
-    },
-    {
-      "list_id": 5,
-      "description": "sdfsdfs",
-      "id": 5
-    },
-    {
-      "list_id": 6,
-      "description": "testing",
-      "id": 6
+      "title": "Go home now.",
+      "description": "",
+      "position": 1,
+      "id": 1
     }
   ],
   "tags": [
     {
       "id": 1,
       "tag_name": "urgent",
+      "color": "rgba(0,0,0, .4)",
       "desc": "Urgent tags are considered time-sensitive."
     }
   ],
