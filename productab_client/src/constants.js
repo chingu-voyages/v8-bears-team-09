@@ -18,6 +18,10 @@ export const UPDATE_LIST = "UPDATE_LIST"
 export const SELECT_CARD = "SELECT_CARD";
 export const DESELECT_CARD = "DESELECT_CARD";
 
+export const GET_CARD_MEMBERS = "GET_CARD_MEMBERS";
+export const ADD_CARD_MEMBER = "ADD_CARD_MEMBERS";
+export const REMOVE_CARD_MEMBER = "REMOVE_CARD_MEMBERS";
+
 export const SELECT_LIST = "SELECT_LIST";
 export const DESELECT_LIST = "DESELECT_LIST";
 
@@ -31,7 +35,11 @@ export const GET_ALL_BOARDS = "GET_ALL_BOARDS";
 export const SELECT_BOARD = "SELECT_BOARD";
 export const CHANGE_BOARD = "CHANGE_BOARD";
 
-export const TOGGLE_MODAL = "TOGGLE_MODAL";
+export const MODAL_ON = "MODAL_ON";
+export const MODAL_OFF = "MODAL_OFF";
+
 
 export const DISABLE_FORMS = "DISABLE_FORMS"
 export const ENABLE_FORMS = "ENABLE_FORMS"
+
+

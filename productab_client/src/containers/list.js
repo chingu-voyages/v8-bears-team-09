@@ -21,6 +21,7 @@ class List extends React.Component {
     let { cards } = this.props;
     const { title, id } = this.props.list;
     this.setState({ title }, () => {
+      // eslint-disable-next-line
       const listCards = cards.filter(card => {
         if (card.list_id === id) {
           return card;
@@ -35,7 +36,9 @@ class List extends React.Component {
     const { cardFormOn } = this.state;
 
     if (prevProps !== this.props) {
+      // eslint-disable-next-line
       if (prevProps.cards !== cards) {
+        // eslint-disable-next-line
         const listCards = cards.filter(card => {
           if (card.list_id === list.id) {
             return card;
@@ -96,8 +99,13 @@ class List extends React.Component {
     evt.persist();
   };
 
-  selectListNow = evt => {
-    const { selectList, list } = this.props;
+  selectListNow = evt => {    
+    const { selectList, selectCard, list } = this.props;
+    if (evt.target.tagName === "P") {
+      const cardObj = JSON.parse(evt.target.parentElement.parentElement.dataset.card);
+      selectCard(cardObj);
+    }
+
     selectList(list);
     evt.persist();
   };
@@ -153,6 +161,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addCard: val => dispatch(_card.addCard(val)),
+  selectCard: val => dispatch(_card.selectCard(val)),
   enableForms: () => dispatch(_.enableForms()),
   disableForms: () => dispatch(_.disableForms()),
   selectList: val => dispatch(_list.selectList(val))

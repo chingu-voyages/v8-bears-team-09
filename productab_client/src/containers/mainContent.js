@@ -44,7 +44,9 @@ class MainContent extends React.Component {
   /* Returns array of current board's lists as React Components to be rendered */
   showLists = () => {
     const { lists } = this.props;
-    return lists.map(list => <List key={`Board. ${list.board_id} - No. ${list.id}`} list={list}/>);
+    let showLists = lists.map(list => <List position={list.position} key={`Board. ${list.board_id} - No. ${list.id}`} list={list}/>);
+    showLists.sort((a,b) => a.props.position - b.props.position);
+    return showLists;
   }
 
   render() {

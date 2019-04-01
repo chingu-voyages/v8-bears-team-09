@@ -21,6 +21,13 @@
       "member_id": 3
     }
   ],
+  "card_members": [
+    {
+      "id": 1,
+      "card_id": 1,
+      "member_id": 2
+    }
+  ],
   "users": [
     {
       "id": 1,
@@ -49,12 +56,12 @@
       "info": "List used for the planning stage of cards. Cards here are not well-defined at this point."
     },
     {
-      "title": "Work In Progress?",
+      "title": "WIP",
       "info": "",
       "board_id": 1,
       "position": 2,
       "cardCount": 0,
-      "id": 5
+      "id": 3
     },
     {
       "title": "Under Reviews",
@@ -77,6 +84,7 @@
       "info": "",
       "board_id": 1,
       "cardCount": 0,
+      "position": 5,
       "id": 8
     }
   ],

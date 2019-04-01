@@ -14,4 +14,4 @@ const _Modal = (props) => {
   </Modal>);
 }
 
-export default _Modal;
+export default connect()(_Modal);

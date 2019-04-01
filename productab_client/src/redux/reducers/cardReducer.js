@@ -18,9 +18,12 @@ export const card = (state = initialState, {type, payload}) => {
       return {...state, cards};
 
     case _.SELECT_CARD:
+    case _.UPDATE_CARD:
+    case _.MOVE_CARD:
     case _.DESELECT_CARD:
       selectedCard = payload;
       return {...state, selectedCard};
+
 
     default:
       return state;
