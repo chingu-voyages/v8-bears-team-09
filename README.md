@@ -1,11 +1,11 @@
 
 # ProducTab: A Productivity App
 This project is a productivity tool modeled after [Trello](https://trello.com) with welcome changes and modes.
-### Contributors List: [Pending]
-<!-- [Cesarina](https://link),
-[Mike](https://link),
-[Linh](https://link),
-[Kevin](https://link) -->
+### Contributors List:
+[Cesarina](https://www.github.com/cesarinapaula),
+[Mike](https://github.com/msk410),
+[Linh](https://github.com/linh4),
+[Kevin](https://github.com/kevindsteeleii)
 ### Features List:
 Note: This is by no means a final list and changes are ongoing.
 - [ ] Create Users
@@ -33,6 +33,7 @@ Note: This is by no means a final list and changes are ongoing.
      - [ ] Change Order of Card
      - [ ] Change List Card is In
      - [ ] Add/Remove Tags
+     - [ ] Add/Remove Members from the Card (denotes responsibility)
 - [ ] Update/Edit Comments
 - [ ] Update/Edit Tags
 - [ ] Search by Keyword

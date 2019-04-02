@@ -21,6 +21,7 @@ class List extends React.Component {
     let { cards } = this.props;
     const { title, id } = this.props.list;
     this.setState({ title }, () => {
+      // eslint-disable-next-line
       const listCards = cards.filter(card => {
         if (card.list_id === id) {
           return card;
@@ -35,7 +36,9 @@ class List extends React.Component {
     const { cardFormOn } = this.state;
 
     if (prevProps !== this.props) {
+      // eslint-disable-next-line
       if (prevProps.cards !== cards) {
+        // eslint-disable-next-line
         const listCards = cards.filter(card => {
           if (card.list_id === list.id) {
             return card;
@@ -96,7 +99,7 @@ class List extends React.Component {
     evt.persist();
   };
 
-  selectListNow = evt => {
+  selectListNow = evt => {    
     const { selectList, list } = this.props;
     selectList(list);
     evt.persist();

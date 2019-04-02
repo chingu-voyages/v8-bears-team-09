@@ -4,13 +4,13 @@ import axios from "axios";
 
 export const addCard = (newCard) => {
   return (dispatch) => {
-    dispatch({ type: _.ADD_CARD, payload: newCard })
+    dispatch({ type: _.ADD_CARD, payload: newCard });
   }
 }
 
 export const removeCard = (cardId) => {
   // TODO: access DB, remove the board with same id that was passed, get the returned list of cards to pass to payload
-  return (dispatch) => dispatch({ type: _.REMOVE_CARD, payload: undefined })
+  return (dispatch) => dispatch({ type: _.REMOVE_CARD, payload: undefined });
 }
 
 export const selectCard = (cardObj) => {
