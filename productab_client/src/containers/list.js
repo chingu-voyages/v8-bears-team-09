@@ -100,12 +100,7 @@ class List extends React.Component {
   };
 
   selectListNow = evt => {    
-    const { selectList, selectCard, list } = this.props;
-    if (evt.target.tagName === "P") {
-      const cardObj = JSON.parse(evt.target.parentElement.parentElement.dataset.card);
-      selectCard(cardObj);
-    }
-
+    const { selectList, list } = this.props;
     selectList(list);
     evt.persist();
   };
@@ -161,7 +156,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addCard: val => dispatch(_card.addCard(val)),
-  selectCard: val => dispatch(_card.selectCard(val)),
   enableForms: () => dispatch(_.enableForms()),
   disableForms: () => dispatch(_.disableForms()),
   selectList: val => dispatch(_list.selectList(val))

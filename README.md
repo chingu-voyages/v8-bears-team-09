@@ -33,6 +33,7 @@ Note: This is by no means a final list and changes are ongoing.
      - [ ] Change Order of Card
      - [ ] Change List Card is In
      - [ ] Add/Remove Tags
+     - [ ] Add/Remove Members from the Card (denotes responsibility)
 - [ ] Update/Edit Comments
 - [ ] Update/Edit Tags
 - [ ] Search by Keyword
