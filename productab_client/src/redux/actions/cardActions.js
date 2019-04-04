@@ -21,11 +21,28 @@ export const deselectCard = () => {
   return (dispatch) => dispatch({ type: _.DESELECT_CARD, payload: null });
 }
 
-export const getCards = () => {
+export const getCards = (lists) => {
   // TODO: accesses the DB, fetches cards that belong to the current workspace, wh/ is identified by its ID
   return async(dispatch) => {
     const cardPromise = await axios.get(JSON_SERVER + "cards");
     const cards = await cardPromise.data;
+    // const cards = {}
+    // lists.map(list => cards[list.id] = [])
+    // cardss.map(card => {
+    //   if (card.list_id in cards) {
+    //     cards[card.list_id].push(card)
+    //   }
+    // })
+    // console.log(cards)
     dispatch({ type: _.GET_CARDS, payload: cards })
   }
+}
+
+export const updateCards = (cards) => dispatch => {
+  dispatch({ type: _.GET_CARDS, payload: cards })
+}
+
+export const moveCard = (card) => dispatch => {
+  // console.log("move card", card)
+  dispatch({ type: _.MOVE_CARD, payload: card})
 }

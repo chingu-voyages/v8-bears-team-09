@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Draggable } from "react-beautiful-dnd";
 import * as _ from "../constants";
 import * as _card from "../redux/actions/cardActions";
 
@@ -14,12 +15,26 @@ const Card = (props) => {
     evt.persist();
   }
 
-  return (<div className="card" data-card_id={id} data-list_id={list_id} onClick={handleClick}>
-    <div className="card-settings"><i className="fas fa-pen"/></div>
-    <div className="card-title">
-      <p className="card-title-contents">{title}</p>
-    </div>
-  </div>);
+  return (
+    <Draggable draggableId={id} index={props.index}>
+      {(provided) => (
+        <div
+          className="card"
+          data-card_id={id}
+          data-list_id={list_id}
+          onClick={handleClick}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <div className="card-settings"><i className="fas fa-pen"/></div>
+          <div className="card-title">
+          <p className="card-title-contents">{title}</p>
+          </div>
+        </div>
+      )}
+  </Draggable>
+  );
 }
 
 const mapDispatchToProps = (dispatch) => ({

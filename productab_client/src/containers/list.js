@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Droppable } from "react-beautiful-dnd";
 
 import { JSON_SERVER } from "../constants";
 import Card from "../components/card";
@@ -71,14 +72,14 @@ class List extends React.Component {
   showCards = () => {
     let { cards } = this.props;
     const { id } = this.props.list;
-    
+
     const listCards = cards
       .filter(card => {
         if (card.list_id === id) {
           return card;
         }
       })
-      .map(card => <Card key={`ID. ${card.id} - List: ${id}`} card={card} />);
+      .map((card, index) => <Card key={`ID. ${card.id} - List: ${id}`} card={card} index={index} />);
       return listCards;
   }
 
@@ -99,7 +100,7 @@ class List extends React.Component {
     evt.persist();
   };
 
-  selectListNow = evt => {    
+  selectListNow = evt => {
     const { selectList, list } = this.props;
     selectList(list);
     evt.persist();
@@ -109,6 +110,7 @@ class List extends React.Component {
     const { cardFormOn, title, listCards } = this.state;
     const { id, cardCount } = this.props.list;
     const { selectedList } = this.props;
+
     return (
       <div
         className="list-style list-sizing shrink-container "
@@ -128,7 +130,17 @@ class List extends React.Component {
           <i className="fas fa-ellipsis-h" onClick={this.handleListOptions} />
         </div>
 
-        {listCards.length > 0 && <div className="inner-list">{this.showCards()}</div>}
+        {listCards.length > 0 && (
+          <Droppable droppableId={id} type="CARDS">
+            {(provided) => <div
+              className="inner-list"
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              >{this.showCards()}
+              {provided.placeholder}
+              </div>}
+          </Droppable>
+        )}
 
         {cardFormOn && selectedList && id === selectedList.id ? (
           <div className="list-bottom">
