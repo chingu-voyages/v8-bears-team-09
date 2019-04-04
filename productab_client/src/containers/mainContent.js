@@ -10,9 +10,6 @@ import * as _card from "../redux/actions/cardActions";
 import "../_stylesheet/components.scss";
 
 class MainContent extends React.Component {
-  state = {
-
-  }
 
   componentDidMount () {
     const { getLists, getCards } = this.props;
@@ -59,7 +56,6 @@ class MainContent extends React.Component {
   };
 
   onDragEnd = (result) => {
-    console.log("result", result.type)
     // dropped outside the list
     if (!result.destination) {
       return;
@@ -68,14 +64,6 @@ class MainContent extends React.Component {
     if (result.type === "CARDS") {
       this.props.moveCard(result);
     }
-
-    // const cards = this.reorder(
-    //   this.props.cards,
-    //   result.source.index,
-    //   result.destination.index
-    // );
-    //
-    // this.props.updateCards(cards)
   }
 
   render() {

@@ -26,14 +26,6 @@ export const getCards = (lists) => {
   return async(dispatch) => {
     const cardPromise = await axios.get(JSON_SERVER + "cards");
     const cards = await cardPromise.data;
-    // const cards = {}
-    // lists.map(list => cards[list.id] = [])
-    // cardss.map(card => {
-    //   if (card.list_id in cards) {
-    //     cards[card.list_id].push(card)
-    //   }
-    // })
-    // console.log(cards)
     dispatch({ type: _.GET_CARDS, payload: cards })
   }
 }
@@ -43,6 +35,5 @@ export const updateCards = (cards) => dispatch => {
 }
 
 export const moveCard = (card) => dispatch => {
-  // console.log("move card", card)
   dispatch({ type: _.MOVE_CARD, payload: card})
 }
