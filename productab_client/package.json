@@ -6,6 +6,7 @@
     "axios": "^0.18.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.4",
+    "react-beautiful-dnd": "^11.0.0-beta",
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",

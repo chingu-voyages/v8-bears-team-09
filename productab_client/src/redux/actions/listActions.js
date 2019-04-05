@@ -44,3 +44,7 @@ export const getLists = (boardId) => {
     dispatch({ type: _.GET_LISTS, payload: filteredLists });
   }
 }
+
+export const moveList = (list) => dispatch => {
+  dispatch({ type: _.MOVE_LIST, payload: list})
+}

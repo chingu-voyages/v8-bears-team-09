@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 
 import { JSON_SERVER } from "../constants";
 import Card from "../components/card";
@@ -71,14 +72,14 @@ class List extends React.Component {
   showCards = () => {
     let { cards } = this.props;
     const { id } = this.props.list;
-    
+
     const listCards = cards
       .filter(card => {
         if (card.list_id === id) {
           return card;
         }
       })
-      .map(card => <Card key={`ID. ${card.id} - List: ${id}`} card={card} />);
+      .map((card, index) => <Card key={`ID. ${card.id} - List: ${id}`} card={card} index={index} />);
       return listCards;
   }
 
@@ -99,7 +100,7 @@ class List extends React.Component {
     evt.persist();
   };
 
-  selectListNow = evt => {    
+  selectListNow = evt => {
     const { selectList, list } = this.props;
     selectList(list);
     evt.persist();
@@ -109,41 +110,58 @@ class List extends React.Component {
     const { cardFormOn, title, listCards } = this.state;
     const { id, cardCount } = this.props.list;
     const { selectedList } = this.props;
+
     return (
-      <div
-        className="list-style list-sizing shrink-container "
-        onClick={this.selectListNow}
-      >
-        <div className="list-top">
-          <textarea
-            draggable={false}
-            name="list-title"
-            className="list-title"
-            value={title}
-            onChange={this.handleTitleChange}
-            onBlur={this.handleTitleBlur}
-            rows="1"
-          />
-
-          <i className="fas fa-ellipsis-h" onClick={this.handleListOptions} />
-        </div>
-
-        {listCards.length > 0 && <div className="inner-list">{this.showCards()}</div>}
-
-        {cardFormOn && selectedList && id === selectedList.id ? (
-          <div className="list-bottom">
-            <NewCard listId={id} cardCount={cardCount}/>
-          </div>
-        ) : (
+      <Draggable draggableId={id} index={this.props.index}>
+        {(provided) => (
           <div
-            className="list-bottom add-card-div"
-            onClick={this.handleAddCard}
+            className="list-style list-sizing shrink-container "
+            onClick={this.selectListNow}
+            {...provided.draggableProps}
+            ref={provided.innerRef}
           >
-            <i className="fas fa-plus" />
-            <span>Add Card</span>
+            <div className="list-top" {...provided.dragHandleProps}>
+              <textarea
+                draggable={false}
+                name="list-title"
+                className="list-title"
+                value={title}
+                onChange={this.handleTitleChange}
+                onBlur={this.handleTitleBlur}
+                rows="1"
+              />
+
+              <i className="fas fa-ellipsis-h" onClick={this.handleListOptions} />
+            </div>
+
+            {listCards.length > 0 && (
+              <Droppable droppableId={id} type="CARDS">
+                {(provided) => <div
+                  className="inner-list"
+                  ref={provided.innerRef}
+                  {...provided.droppableProps}
+                  >{this.showCards()}
+                  {provided.placeholder}
+                  </div>}
+              </Droppable>
+            )}
+
+            {cardFormOn && selectedList && id === selectedList.id ? (
+              <div className="list-bottom">
+                <NewCard listId={id} cardCount={cardCount}/>
+              </div>
+            ) : (
+              <div
+                className="list-bottom add-card-div"
+                onClick={this.handleAddCard}
+              >
+                <i className="fas fa-plus" />
+                <span>Add Card</span>
+              </div>
+            )}
           </div>
         )}
-      </div>
+      </Draggable>
     );
   }
 }

@@ -1,4 +1,5 @@
 import * as _ from "../../constants";
+import { moveCards } from "./moveElements";
 
 const initialState = {
   selectedCard: null,
@@ -19,11 +20,19 @@ export const card = (state = initialState, {type, payload}) => {
 
     case _.SELECT_CARD:
     case _.UPDATE_CARD:
-    case _.MOVE_CARD:
     case _.DESELECT_CARD:
       selectedCard = payload;
       return {...state, selectedCard};
 
+    case _.MOVE_CARD:
+      if (payload.source && payload.destination) {
+        const cards = moveCards(
+          payload.source,
+          payload.destination,
+          state.cards
+        );
+        return { ...state, cards };
+      }
 
     default:
       return state;

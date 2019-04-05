@@ -29,3 +29,11 @@ export const getCards = () => {
     dispatch({ type: _.GET_CARDS, payload: cards })
   }
 }
+
+export const updateCards = (cards) => dispatch => {
+  dispatch({ type: _.GET_CARDS, payload: cards })
+}
+
+export const moveCard = (card) => dispatch => {
+  dispatch({ type: _.MOVE_CARD, payload: card})
+}
