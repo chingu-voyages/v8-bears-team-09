@@ -68,7 +68,7 @@
       "info": "",
       "board_id": 1,
       "position": 3,
-      "cardCount": 1,
+      "cardCount": 2,
       "id": 6
     },
     {
@@ -137,6 +137,13 @@
       "description": "",
       "position": 1,
       "id": 7
+    },
+    {
+      "list_id": 6,
+      "title": "blahhhh",
+      "description": "",
+      "position": 2,
+      "id": 8
     }
   ],
   "tags": [

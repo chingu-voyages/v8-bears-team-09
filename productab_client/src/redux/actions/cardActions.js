@@ -21,7 +21,7 @@ export const deselectCard = () => {
   return (dispatch) => dispatch({ type: _.DESELECT_CARD, payload: null });
 }
 
-export const getCards = (lists) => {
+export const getCards = () => {
   // TODO: accesses the DB, fetches cards that belong to the current workspace, wh/ is identified by its ID
   return async(dispatch) => {
     const cardPromise = await axios.get(JSON_SERVER + "cards");

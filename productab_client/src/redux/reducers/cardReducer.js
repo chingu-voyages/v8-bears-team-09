@@ -31,7 +31,7 @@ export const card = (state = initialState, {type, payload}) => {
           payload.destination,
           state.cards
         );
-      return { ...state, cards };
+        return { ...state, cards };
       }
 
     default:

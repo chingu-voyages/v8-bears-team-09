@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
 import List from "./list";
 import NewList from "../components/newList";
@@ -14,7 +14,7 @@ class MainContent extends React.Component {
   componentDidMount () {
     const { getLists, getCards } = this.props;
     getLists(1)
-    .then(() => getCards(this.props.lists))
+    getCards()
   }
 
   componentDidUpdate(prevProps) {
@@ -42,18 +42,10 @@ class MainContent extends React.Component {
   /* Returns array of current board's lists as React Components to be rendered */
   showLists = () => {
     const { lists } = this.props;
-    let showLists = lists.map(list => <List position={list.position} key={`Board. ${list.board_id} - No. ${list.id}`} list={list}/>);
-    showLists.sort((a,b) => a.props.position - b.props.position);
+    let showLists = lists.map((list, index) => <List position={list.position} key={`Board. ${list.board_id} - No. ${list.id}`} list={list} index={index}/>);
+    // showLists.sort((a,b) => a.props.position - b.props.position);
     return showLists;
   }
-
-  reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-
-    return result;
-  };
 
   onDragEnd = (result) => {
     // dropped outside the list
@@ -64,15 +56,32 @@ class MainContent extends React.Component {
     if (result.type === "CARDS") {
       this.props.moveCard(result);
     }
+
+    if (result.type === "COLUMNS") {
+      this.props.moveList(result)
+    }
   }
 
   render() {
     return(<div id="main-content" onClick={this.handleBlurClick}>
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <div id="inner-content">
-          {this.showLists()}
-          <NewList/>
-        </div>
+        <Droppable
+          droppableId="board"
+          direction="horizontal"
+          type="COLUMNS"
+        >
+          {(provided) => (
+            <div
+              id="inner-content"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {this.showLists()}
+              <NewList/>
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
       </DragDropContext>
     </div>);
   }
@@ -87,8 +96,9 @@ const mapStateToProps = (state) =>  ({
 const mapDispatchToProps = (dispatch) => ({
   disableForms: () => dispatch(_base.disableForms()),
   getLists: (boardId) => dispatch(_list.getLists(boardId)),
-  getCards: (cards) => dispatch(_card.getCards(cards)),
-  moveCard: (cards) => dispatch(_card.moveCard(cards)),
+  moveList: (list) => dispatch(_list.moveList(list)),
+  getCards: () => dispatch(_card.getCards()),
+  moveCard: (card) => dispatch(_card.moveCard(card)),
   updateCards: val => dispatch(_card.updateCards(val)),
   deselectList: () => dispatch(_list.deselectList())
 });

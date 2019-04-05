@@ -16,7 +16,7 @@ const Card = (props) => {
   }
 
   return (
-    <Draggable draggableId={id} index={props.index}>
+    <Draggable draggableId={title + id} index={props.index}>
       {(provided) => (
         <div
           className="card"

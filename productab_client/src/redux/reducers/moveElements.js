@@ -17,3 +17,10 @@ export const moveCards = (source, destination, cards) => {
   const filteredCards = cards.filter( el => !results.includes(el));
   return filteredCards.concat(results)
 }
+
+
+export const moveLists = (source, destination, lists) => {
+  const [removed] = lists.splice(source, 1); // remove the col list
+  lists.splice(destination, 0, removed);
+  return [...lists];
+}

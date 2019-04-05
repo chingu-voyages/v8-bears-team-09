@@ -1,4 +1,5 @@
 import * as _ from "../../constants";
+import { moveLists } from "./moveElements";
 
 const initialState = {
   selectedList: null,
@@ -23,6 +24,18 @@ export const list = (state = initialState, { type, payload }) => {
     case _.DESELECT_LIST:
       selectedList = payload;
       return { ...state, selectedList };
+
+    case _.MOVE_LIST:
+      if (payload.source === null || payload.destination === null) {
+        return state;
+      } else {
+        const lists = moveLists(
+          payload.source.index,
+          payload.destination.index,
+          state.lists
+        )
+        return { ...state, lists };
+      }
 
     default:
       return state;

@@ -33,9 +33,11 @@ div.list-style{
     min-height: $list-cap-height;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
 
     textarea {
       width: inherit;
+      cursor: pointer;
     }
   }
 
@@ -98,10 +100,10 @@ div.inner-list {
   // padding-bottom: $main-padding/2;
 }
 
-div.card {  
+div.card {
   margin: $main-padding/2 0;
   display: grid;
-  grid-template: 
+  grid-template:
     "title edit" auto/ auto $main-padding*3;
   box-sizing: border-box;
   width: auto;
@@ -113,7 +115,7 @@ div.card {
 
 
 }
-div.card:hover {  
+div.card:hover {
   cursor: pointer;
   background-color: rgba($dark-grey, 0.3);
 }
