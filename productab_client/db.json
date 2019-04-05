@@ -1,0 +1,165 @@
+{
+  "boards": [
+    {
+      "id": 1,
+      "title": "default",
+      "info": "A board created by default",
+      "listCount": 4
+    }
+  ],
+  "board_members": [
+    {
+      "board_id": 1,
+      "member_id": 1
+    },
+    {
+      "board_id": 1,
+      "member_id": 2
+    },
+    {
+      "board_id": 1,
+      "member_id": 3
+    }
+  ],
+  "card_members": [
+    {
+      "id": 1,
+      "card_id": 1,
+      "member_id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "bob123"
+    },
+    {
+      "id": 2,
+      "username": "Jackie45"
+    },
+    {
+      "id": 3,
+      "username": "urGirl96"
+    },
+    {
+      "username": "KevinS",
+      "id": 4
+    }
+  ],
+  "lists": [
+    {
+      "id": 1,
+      "board_id": 1,
+      "title": "Planning",
+      "position": 1,
+      "cardCount": 3,
+      "info": "List used for the planning stage of cards. Cards here are not well-defined at this point."
+    },
+    {
+      "title": "WIP",
+      "info": "",
+      "board_id": 1,
+      "position": 2,
+      "cardCount": 2,
+      "id": 3
+    },
+    {
+      "title": "Under Reviews",
+      "info": "",
+      "board_id": 1,
+      "position": 3,
+      "cardCount": 2,
+      "id": 6
+    },
+    {
+      "title": "IDK",
+      "info": "",
+      "board_id": 1,
+      "position": 4,
+      "cardCount": 0,
+      "id": 7
+    },
+    {
+      "title": "Done",
+      "info": "",
+      "board_id": 1,
+      "cardCount": 0,
+      "position": 5,
+      "id": 8
+    }
+  ],
+  "cards": [
+    {
+      "list_id": 1,
+      "title": "Go home now.",
+      "description": "",
+      "position": 1,
+      "id": 1
+    },
+    {
+      "list_id": 1,
+      "title": "test 1",
+      "description": "",
+      "position": 2,
+      "id": 2
+    },
+    {
+      "list_id": 1,
+      "title": "test 2",
+      "description": "",
+      "position": 2,
+      "id": 3
+    },
+    {
+      "list_id": 1,
+      "title": "test 3",
+      "description": "",
+      "position": 2,
+      "id": 4
+    },
+    {
+      "list_id": 3,
+      "title": "hi",
+      "description": "",
+      "position": 1,
+      "id": 5
+    },
+    {
+      "list_id": 3,
+      "title": "iooi",
+      "description": "",
+      "position": 2,
+      "id": 6
+    },
+    {
+      "list_id": 6,
+      "title": "woops",
+      "description": "",
+      "position": 1,
+      "id": 7
+    },
+    {
+      "list_id": 6,
+      "title": "blahhhh",
+      "description": "",
+      "position": 2,
+      "id": 8
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "tag_name": "urgent",
+      "color": "rgba(0,0,0, .4)",
+      "desc": "Urgent tags are considered time-sensitive."
+    }
+  ],
+  "tagged_cards": [
+    {
+      "id": 1,
+      "tag_id": 1,
+      "card_id": 1
+    }
+  ],
+  "tagged_lists": []
+}

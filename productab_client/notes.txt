@@ -1,0 +1,21 @@
+Terminal command to run faux server:
+  json-server -p 3001 --watch db.json
+
+NOTE: Routes for the mock server and DB 
+  http://localhost:3001/users
+  http://localhost:3001/lists
+  http://localhost:3001/cards
+  http://localhost:3001/tags
+  http://localhost:3001/tagged_cards
+  http://localhost:3001/tagged_lists
+
+Their placeholder objects look like this:
+NOTE: json-server automatically adds id columns to all created rows
+
+users -> { username: "name"}
+boards -> { title: "board title", info: "a bunch of info about the board", listCount: 2}
+lists -> { title: "title", info: "a bunch of info about the list", board_id: 1, position: 2, cardCount: 2}
+cards -> { list_id: 0, title: "title", description: "some stuff", position: 1 }
+tags -> { tag_name: "tag name", desc: "description of tag", color: "rgba(0, 0, 0, .3)" }
+tagged_cards -> { tag_id: 1, card_id: 3}
+tagged_lists -> { tag_id: 1, list_id: 2}
