@@ -1,5 +1,0 @@
-TODO:
-2019-04-01: Build more of the cardModal functionality
-  - display some of its info 
-  - change some of it's info
-- work on the form components and form containers to make the code more modular
